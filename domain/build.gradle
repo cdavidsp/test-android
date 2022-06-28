@@ -1,9 +1,16 @@
 plugins {
-    id 'java-library'
-    id 'org.jetbrains.kotlin.jvm'
+    id("java-library")
+    id("kotlin")
 }
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_1_7
-    targetCompatibility = JavaVersion.VERSION_1_7
+dependencies {
+    api domainDependencies.kotlin
+    api domainDependencies.coroutinesCore
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8.toString()
+targetCompatibility = JavaVersion.VERSION_1_8.toString()
+
+sourceSets {
+    main.java.srcDirs += 'src/main/kotlin'
 }
